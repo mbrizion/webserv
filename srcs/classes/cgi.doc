@@ -1,0 +1,63 @@
+AUTH_TYPE
+	The AUTH_TYPE variable identifies any mechanism used by the server to
+   authenticate the user.  
+   For HTTP, if the client request required authentication for external
+   access, then the server MUST set the value of this variable from the
+   'auth-scheme' token in the request Authorization header field.
+	AUTH_TYPE	  = 
+
+CONTENT_LENGTH
+	  CONTENT_LENGTH = body.size()
+
+CONTENT_TYPE
+   If the request includes a message-body, the CONTENT_TYPE variable is
+   set to the Internet Media Type of the message-body.
+	  CONTENT_TYPE = 
+
+GATEWAY_INTERFACE
+   The GATEWAY_INTERFACE variable MUST be set to the dialect of CGI
+   being used by the server to communicate with the script.  Syntax:
+	  GATEWAY_INTERFACE = CGI/1.1
+
+PATH_INFO
+   The PATH_INFO variable specifies a path to be interpreted by the CGI
+   script.  
+	  PATH_INFO =	"/usr/bin/php7.4" -> for php
+					   "/bin/bash" -> for bash script
+
+PATH_TRANSLATED
+   The PATH_TRANSLATED variable is derived by taking the PATH_INFO
+   value, parsing it as a local URI in its own right, and performing any
+   virtual-to-physical translation appropriate to map it onto the
+   server's document repository structure.  The set of characters
+   permitted in the result is system-defined.
+	  PATH_TRANSLATED = 
+
+QUERY_STRING
+   The QUERY_STRING variable contains a URL-encoded search or parameter
+   string; it provides information to the CGI script to affect or refine
+   the document to be returned by the script.
+	  QUERY_STRING = 
+
+REMOTE_ADDR
+   The REMOTE_ADDR variable MUST be set to the network address of the
+   client sending the request to the server. (= localhost)
+	  REMOTE_ADDR  = localhost
+
+REQUEST_METHOD
+	REQUEST_METHOD  = method
+
+SCRIPT_NAME
+	SCRIPT_NAME = ./website/cgi/....
+
+SERVER_NAME
+	SERVER_NAME = localhost
+
+SERVER_PORT
+	SERVER_PORT =  8080
+
+SERVER_PROTOCOL
+	SERVER_PROTOCOL = HTTP/1.1
+
+SERVER_SOFTWARE
+	SERVER_SOFTWARE = webserv

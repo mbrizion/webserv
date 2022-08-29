@@ -1,0 +1,47 @@
+Server blocks:
+
+• Choose the port and host of each ’server’.
+Syntax:         listen address[:port]
+
+• Setup the server_names or not.
+Syntax:         server_name name ...
+
+• The first server for a host:port will be the default for this host:port (that means
+it will answer to all the requests that don’t belong to an other server).
+
+• Setup default error pages.
+Syntax:         error_page code uri
+
+• Limit client body size.
+Syntax:         client_max_body_size size
+Default:        client_max_body_size 2048
+
+
+Location blocks:
+
+• Setup routes with one or multiple of the following rules/configuration (routes wont
+be using regexp):
+Syntax:         location location_name
+
+◦ Define a list of accepted HTTP methods for the route.
+Syntax:         allow_methods [GET] [POST] [DELETE]
+
+◦ Define a HTTP redirection.
+Syntax:         redirection path replacement
+
+◦ Define a directory or a file from where the file should be searched.
+For example, if url /foo is rooted to /tmp/www, url /foo/bar/baz is
+/tmp/www/foo/bar/baz.
+Syntax:         root path
+
+◦ Turn on or off directory listing.
+Syntax:         autoindex on|off
+Default:        autoindex off
+
+◦ Set a default file to answer if the request is a directory.
+Syntax:         index file
+Default:        index index.html
+
+◦ Make the route able to accept uploaded files and configure where they should
+be saved.
+Syntax:         upload_store path

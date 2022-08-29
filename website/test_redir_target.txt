@@ -1,0 +1,1 @@
+file located at /test_redir_target.txt

@@ -1,0 +1,71 @@
+• Choose the port and host of each ’server’.
+http://nginx.org/en/docs/http/ngx_http_core_module.html#listen
+Syntax:         listen address[:port];
+Default:        listen *:80 | *:8000;
+Context:        server
+
+• Setup the server_names or not.
+http://nginx.org/en/docs/http/ngx_http_core_module.html#server_name
+Syntax:         server_name name ...;
+Default:        server_name "";
+Context:        server
+
+• The first server for a host:port will be the default for this host:port (that means
+it will answer to all the requests that don’t belong to an other server).
+
+• Setup default error pages.
+http://nginx.org/en/docs/http/ngx_http_core_module.html#error_page
+Syntax:         error_page code ... [=[response]] uri;
+Default:        —
+Context:        http, server, location
+
+• Limit client body size.
+http://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size
+Syntax:         client_max_body_size size;
+Default:        client_max_body_size 1m;
+Context:        http, server, location
+
+• Setup routes with one or multiple of the following rules/configuration (routes wont
+be using regexp):
+http://nginx.org/en/docs/http/ngx_http_core_module.html#location
+Syntax:         location [ = | ~ | ~* | ^~ ] uri { ... } location @name { ... }
+Default:        —
+Context:        server, location
+
+◦ Define a list of accepted HTTP methods for the route.
+http://nginx.org/en/docs/http/ngx_http_core_module.html#limit_except
+Syntax:         allow_methods method ...
+Default:        —
+Context:        location
+
+◦ Define a HTTP redirection.
+http://nginx.org/en/docs/http/ngx_http_redirection_module.html#redirection
+Syntax:         redirection regex replacement [flag];
+Default:        —
+Context:        server, location
+
+◦ Define a directory or a file from where the file should be searched.
+For example, if url /foo is rooted to /tmp/www, url /foo/bar/baz is
+/tmp/www/foo/bar/baz.
+http://nginx.org/en/docs/http/ngx_http_core_module.html#root
+Syntax:         root path;
+Default:        root html;
+Context:        http, server, location
+
+◦ Turn on or off directory listing.
+http://nginx.org/en/docs/http/ngx_http_autoindex_module.html#autoindex
+Syntax:         autoindex on | off;
+Default:        autoindex off;
+Context:        http, server, location
+
+◦ Set a default file to answer if the request is a directory.
+http://nginx.org/en/docs/http/ngx_http_index_module.html
+Syntax:         index file ...;
+Default:        index index.html;
+Context:        http, server, location
+
+◦ Execute CGI based on certain file extension (for example .php).
+
+◦ Make the route able to accept uploaded files and configure where they should
+be saved.
+https://www.nginx.com/resources/wiki/modules/upload/
